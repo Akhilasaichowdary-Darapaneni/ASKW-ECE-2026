@@ -145,25 +145,6 @@ scroll-snap-align:start;
   object-fit:cover;
 }
 
-/* MESSAGE */
-textarea{
-width:300px;
-padding:10px;
-border-radius:10px;
-}
-button{
-padding:10px 20px;
-background:#00e0ff;
-border:none;
-cursor:pointer;
-}
-
-/* TIMELINE */
-.timeline{
-border-left:2px solid #00e0ff;
-padding-left:20px;
-}
-
 /* TEXT */
 h1{font-size:3rem;}
 </style>
@@ -183,7 +164,6 @@ h1{font-size:3rem;}
 <a href="#about">About</a>
 <a href="#members">Members</a>
 <a href="#memories">Memories</a>
-<a href="#messages">Messages</a>
 <a href="#goodbye">Goodbye</a>
 </nav>
 
@@ -223,17 +203,9 @@ h1{font-size:3rem;}
 
 <!-- REELS -->
 <div class="reel-container" id="memories">
-<video src="videos\v1.mp4"autoplay muted loop></video>
+<video src="videos/v1.mp4"autoplay muted loop></video>
 <video src="videos/v2.mp4" autoplay muted loop></video>
 </div>
-
-<!-- MESSAGES -->
-<section id="messages">
-<h2>Message Wall 💌</h2>
-<textarea id="msg"></textarea><br>
-<button onclick="postMsg()">Post</button>
-<div id="msgList"></div>
-</section>
 
 <!-- GOODBYE -->
 <section id="goodbye">
@@ -243,7 +215,7 @@ h1{font-size:3rem;}
 
 <script>
 
-/* ================= MEMBERS DATA (STATIC) ================= */
+/* ================= MEMBERS DATA ================= */
 const members = [
 { name: "Member 1", image: "assets/images/1.jpg", rollNo: "222T1A0401", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
 { name: "Member 2", image: "assets/images/2.jpg", rollNo: "222T1A0402", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
@@ -261,7 +233,7 @@ const members = [
 { name: "Member 12", image: "assets/images/12.jpg", rollNo: "222T1A0412", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
 { name: "Member 13", image: "assets/images/13.jpg", rollNo: "222T1A0413", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
 { name: "Member 14", image: "assets/images/14.jpg", rollNo: "222T1A0414", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
-{ name: "Member 15", image: "assets/images/15.jpg", rollNo: "222T1A0415", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
+{ name: "Member 15", image: "assets/images/15.jpg", rollNo: "222T1A0415", skills: ["ECE"], achievement: "Batch 2026", insta: "akhila0620" },
 
 { name: "Member 16", image: "assets/images/16.jpg", rollNo: "222T1A0416", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
 { name: "Member 17", image: "assets/images/17.jpg", rollNo: "222T1A0417", skills: ["ECE"], achievement: "Batch 2026", insta: "#" },
@@ -417,8 +389,6 @@ function showMsgs(){
 
 showMsgs();
 
-/* ================= SCROLL ANIMATION ================= */
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if(e.isIntersecting){
@@ -428,8 +398,6 @@ const observer = new IntersectionObserver(entries => {
 });
 
 document.querySelectorAll("section").forEach(sec => observer.observe(sec));
-
-/* ================= AI QUOTES ================= */
 
 const quotes = [
 "These were the best days ❤️",
@@ -445,28 +413,4 @@ setInterval(() => {
 </script>
 
 </body>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyC5kWQn9FgkOKJPEtp4Okp9XVwnOu3hvAM",
-    authDomain: "ece2026-aff0f.firebaseapp.com",
-    projectId: "ece2026-aff0f",
-    storageBucket: "ece2026-aff0f.firebasestorage.app",
-    messagingSenderId: "149834941879",
-    appId: "1:149834941879:web:3f5ed3762d3225ac0f9432",
-    measurementId: "G-H7QE4DG3BC"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 </html>
